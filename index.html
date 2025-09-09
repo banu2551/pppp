@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANu Star Scene</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Katibeh&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="moon">
+            <a href="home.html">
+                <img src="moon.png" alt="Moon">
+            </a>
+        </div>
+
+        <div class="stars"></div>
+
+        <h1 class="text">
+            <span>B</span><span>A</span><span>N</span><span>U</span>
+        </h1>
+    </div>
+
+    <script>
+        const starsContainer = document.querySelector('.stars');
+        const numStars = 80; 
+        const shootingChance = 0.1; 
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('span');
+            const size = Math.random() * 3 + 1; // ขนาด 1-4px
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+
+           
+            if (Math.random() < shootingChance) {
+                star.classList.add('shooting-star');
+                star.style.animationDelay = Math.random() * 10 + 's'; // เวลาหน่วงสุ่ม
+            }
+
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

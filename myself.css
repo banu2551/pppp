@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "TH Sarabun New", sans-serif;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 0;
+  }
+  
+  /* พื้นหลังดาวระยิบระยับ */
+  .stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: #fff;
+    background-image: url('bg.jpg'); /* 👈 เปลี่ยนชื่อให้ตรงกับไฟล์จริง */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: black;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 2s infinite;
+  }
+  
+  
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+  
+  /* เมนูเต็มจอแนวนอน */
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .menu-item {
+    color: #000;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.6);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Gradient Animation Hover */
+  .menu-item::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(120deg, #fff, #ccc, #fff);
+    transition: 0.5s;
+    z-index: -1;
+  }
+  
+  .menu-item:hover::before {
+    left: 0;
+  }
+  
+  .menu-item:hover {
+    color: white;
+    background: #444;
+    transform: scale(1.1);
+  }
+  
+  .menu-item.active {
+    background: #222;
+    color: #fff;
+  }
+  
+  /* รูปโปรไฟล์มีแอนิเมชัน */
+  .profile-img {
+    width: 250px;
+    max-width: 80%;
+    display: block;
+    margin: 30px auto;
+    animation: floatImg 3s ease-in-out infinite;
+  }
+  
+  @keyframes floatImg {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* กล่องข้อมูล */
+  .info-box {
+    width: 340px;
+    max-width: 90%;
+    background: #999;
+    color: #000;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid black;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 10px;
+    animation: fadeUp 1.5s ease;
+  }
+  
+  .subtitle {
+    font-size: 36px;
+    margin-top: 30px;
+    font-family: 'Chalkboard', cursive;
+    animation: fadeIn 2s ease;
+  }
+  
+  .motto-box {
+    width: 340px;
+    max-width: 90%;
+    background: #999;
+    margin: 20px auto;
+    padding: 25px;
+    font-size: 26px;
+    border: 2px solid black;
+    border-radius: 10px;
+    animation: fadeUp 2s ease;
+  }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .menu {
+      flex-wrap: wrap;
+      font-size: 20px;
+      padding: 15px;
+    }
+    .menu-item {
+      padding: 10px 15px;
+      margin: 5px;
+    }
+    .subtitle {
+      font-size: 28px;
+    }
+    .motto-box {
+      font-size: 20px;
+    }
+  }
+  

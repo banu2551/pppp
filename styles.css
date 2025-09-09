@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: #272424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url('moon-surface.jpg') no-repeat center center/cover;
+    animation: zoomEffect 15s infinite alternate;
+    overflow: hidden;
+}
+
+.moon {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.moon img {
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 255, 200, 0.9), 0 0 120px rgba(255, 255, 180, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.moon img:hover {
+    transform: scale(1.05);
+}
+
+.stars span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgb(206, 231, 185);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.stars span:nth-child(1) { top: 50px; left: 150px; }
+.stars span:nth-child(2) { top: 120px; left: 300px; }
+.stars span:nth-child(3) { top: 200px; left: 500px; }
+.stars span:nth-child(4) { top: 80px; left: 700px; }
+.stars span:nth-child(5) { top: 150px; left: 900px; }
+.stars span:nth-child(6) { top: 40px; left: 100px; }
+.stars span:nth-child(7) { top: 180px; left: 450px; }
+.stars span:nth-child(8) { top: 230px; left: 600px; }
+.stars span:nth-child(9) { top: 90px; left: 800px; }
+.stars span:nth-child(10){ top: 140px; left: 1000px; }
+.stars span:nth-child(11){ top: 60px; left: 250px; }
+.stars span:nth-child(12){ top: 130px; left: 350px; }
+.stars span:nth-child(13){ top: 210px; left: 550px; }
+.stars span:nth-child(14){ top: 75px; left: 650px; }
+.stars span:nth-child(15){ top: 160px; left: 850px; }
+.stars span:nth-child(16){ top: 50px; left: 950px; }
+.stars span:nth-child(17){ top: 190px; left: 300px; }
+.stars span:nth-child(18){ top: 240px; left: 500px; }
+.stars span:nth-child(19){ top: 100px; left: 750px; }
+.stars span:nth-child(20){ top: 170px; left: 950px; }
+
+.text {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 120px;
+    color: rgba(213, 250, 168, 0.95);
+    letter-spacing: 15px;
+    font-family: 'Marcellus SC', 'Katibeh', serif; /* ✅ อัปเดตฟอนต์ */
+    text-shadow: 0 5px 15px rgba(255, 255, 255, 1);
+}
+
+.text span {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+}
+
+.text span:nth-child(1) { animation-delay: 0.5s; }
+.text span:nth-child(2) { animation-delay: 1.5s; }
+.text span:nth-child(3) { animation-delay: 2.5s; }
+.text span:nth-child(4) { animation-delay: 3.5s; }
+
+/* ✅ Keyframes */
+@keyframes zoomEffect {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 1024px) {
+  .text {
+    font-size: 80px;
+    letter-spacing: 10px;
+    bottom: 80px;
+  }
+
+  .moon img {
+    width: 120px;
+  }
+}
+
+/* สำหรับแท็บเล็ต */
+@media (max-width: 768px) {
+  .text {
+    font-size: 60px;
+    letter-spacing: 8px;
+    bottom: 60px;
+  }
+
+  .moon img {
+    width: 100px;
+  }
+}
+
+/* สำหรับมือถือ */
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+  }
+
+  .text {
+    font-size: 50px;
+    letter-spacing: 5px;
+    bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .moon {
+    top: 10px;
+    right: 20px;
+  }
+
+  .moon img {
+    width: 80px;
+  }
+
+  .stars span {
+    width: 1.5px;
+    height: 1.5px;
+  }
+}

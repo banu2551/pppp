@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "TH Sarabun New", sans-serif;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 0;
+  }
+  
+  /* พื้นหลังดาวระยิบระยับ */
+  .stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: #fff;
+    background: #fff;
+    background-image: url('bg.jpg'); /* 👈 เปลี่ยนชื่อให้ตรงกับไฟล์จริง */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: black;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 2s infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+/* เมนูเต็มจอแนวนอน */
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .menu-item {
+    color: #000;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.6);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Gradient Animation Hover */
+  .menu-item::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(120deg, #fff, #ccc, #fff);
+    transition: 0.5s;
+    z-index: -1;
+  }
+  
+  .menu-item:hover::before {
+    left: 0;
+  }
+  
+  .menu-item:hover {
+    color: white;
+    background: #444;
+    transform: scale(1.1);
+  }
+  
+  .menu-item.active {
+    background: #222;
+    color: #fff;
+  }
+  
+  
+  @keyframes floatImg {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .info-box {
+    width: 340px;
+    max-width: 90%;
+    background: #9c9eaf;
+    color: #000;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid black;
+    font-size: 45px; /* ✅ อัปเดตขนาดตัวอักษร */
+    text-align: left;
+    border-radius: 10px;
+    animation: fadeUp 1.5s ease;
+  }
+  
+  
+  .subtitle {
+    font-size: 36px;
+    margin-top: 30px;
+    font-family: 'Chalkboard', cursive;
+    animation: fadeIn 2s ease;
+  }
+  
+  .motto-box {
+    width: 340px;
+    max-width: 90%;
+    background: #4c5270;
+    margin: 20px auto;
+    padding: 25px;
+    font-size: 26px;
+    border: 2px solid black;
+    border-radius: 10px;
+    animation: fadeUp 2s ease;
+  }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+.goal-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 100px;
+  }
+  
+  .goal-block {
+    position: relative;
+    width: 60%;
+  }
+  
+  .goal-title {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #022b53, #0885eb); /* ไล่สีฟ้า */
+    padding: 12px 25px 12px 50px; /* เผื่อเว้นพื้นที่ไอคอนดาว */
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3); /* เงาสวยงาม */
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "TH Sarabun New", sans-serif;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  /* ⭐ เพิ่มไอคอนดาวหน้าหัวข้อ */
+  .goal-title::before {
+    content: '⭐';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+  }
+  
+  .goal-box {
+    width: 100%;
+    max-width: 100%;
+    background: #444d58;
+    border: 3px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    height: auto; /* ❗ เปลี่ยนจาก fixed height เป็น auto */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .goal-past {
+    align-self: flex-end;
+    text-align: right;
+  }
+  
+  .goal-present {
+    align-self: flex-start;
+    text-align: left;
+  }
+  
+  .goal-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 250px;         
+    max-width: 40%;       
+    transition: transform 0.3s ease;
+  }
+  .goal-title {
+    font-size: 28px;         
+    font-weight: bold;       
+    color: #02192c;         
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "TH Sarabun New", sans-serif;
+  }
+  .goal-text {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.8;
+    color: #f7f5f5;
+    font-family: "TH Sarabun New", sans-serif;
+    text-align: left;
+    padding-left: 10px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .goal-container {
+      gap: 60px;
+      padding: 20px;
+    }
+  
+    .goal-block {
+      width: 100%;
+    }
+  
+    .goal-box {
+      height: 240px;
+    }
+  
+    .goal-title {
+      font-size: 22px;
+    }
+  
+    .goal-image {
+      width: 150px;
+    }
+    .goal-image:hover {
+        transform: scale(1.05);
+      }
+  }
+  @media (max-width: 768px) {
+    .info-box {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 480px) {
+    .goal-text {
+      font-size: 20px;
+      padding-left: 5px;
+    }
+  
+    .goal-box {
+      padding: 15px;
+    }
+  }  
